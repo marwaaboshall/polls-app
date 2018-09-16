@@ -11,7 +11,11 @@ class QuestionDetails extends Component {
                 <div className="row">
                     <div className="col">
                         <p>Question: {this.props.question}</p>
-                        <p>Choice: </p>
+                        <ul>
+                            {this.props.choices.map((choice, index) => 
+                                <li key={index}>{choice.choice}</li>
+                            )}
+                        </ul>
                         <button>Save Vote</button>
                     </div>
                 </div>

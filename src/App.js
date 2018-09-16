@@ -9,14 +9,14 @@ import QuestionDetails from './QuestionDetails';
 class App extends Component {
   state = {
     question: '',
-    choices: ''
+    choices: []
   };
   shareQuestionData = (question, choices) => {
     this.setState({
       question,
       choices
     });
-    console.log(question, choices);
+    console.log(question, typeof choices);
   }
   render() {
     return (
