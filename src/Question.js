@@ -6,7 +6,7 @@ class Question extends Component {
             <div className="row align-items-start">
                 {this.props.questionsList.map((question, index) =>
                     <div className="col-6 col-md-4" key={index}>
-                        <h5>{ question.question }</h5>
+                        <a href="/question-details">{ question.question }</a>
                         <p>Published at: { question.published_at }</p>
                         <p>Choices: {question.choices.length} </p>
                     </div>
