@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Question from './Question';
+
 
 class App extends Component {
   state = {
@@ -25,6 +27,7 @@ class App extends Component {
         <header>
           <h1>Questions</h1>
         </header>
+        <Question questionsList={this.state.questions}/>
       </div>
     );
   }
