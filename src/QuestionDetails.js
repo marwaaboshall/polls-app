@@ -10,7 +10,7 @@ class QuestionDetails extends Component {
                 </header>
                 <div className="row">
                     <div className="col">
-                        <p>Question: </p>
+                        <p>Question: {this.props.question}</p>
                         <p>Choice: </p>
                         <button>Save Vote</button>
                     </div>

@@ -11,6 +11,7 @@ class Question extends Component {
             currentQuestion,
             choices
         });
+        this.props.getQuestionData(currentQuestion, choices);
     }
     setQuestionData = this.setQuestionData.bind(this);
 

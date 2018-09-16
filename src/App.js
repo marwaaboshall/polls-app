@@ -7,19 +7,29 @@ import QuestionDetails from './QuestionDetails';
 
 
 class App extends Component {
-  
+  state = {
+    question: '',
+    choices: ''
+  };
+  shareQuestionData = (question, choices) => {
+    this.setState({
+      question,
+      choices
+    });
+    console.log(question, choices);
+  }
   render() {
     return (
       <div className="container">
         <Route
           exact path="/"
           render= {() => (
-            <QuestionsList />
+            <QuestionsList shareQuestionData={this.shareQuestionData}/>
         )}/>
         <Route
           exact path="/question-details"
           render= {() => (
-            <QuestionDetails />
+            <QuestionDetails question={ this.state.question } choices={ this.state.choices}/>
         )}/>
       </div>
     );

@@ -19,14 +19,16 @@ class QuestionsList extends Component {
           console.log('An error happened fetching the data' + err);
         });
     }
-    
+    getQuestionData = (question, choices)=> {
+        this.props.shareQuestionData(question, choices);
+    }
     render() {
         return (
             <div className="container">
                 <header className="row">
                     <h1>Questions</h1>
                 </header>
-                <Question questionsList={this.state.questions}/>
+                <Question questionsList={this.state.questions} getQuestionData={this.getQuestionData}/>
             </div>
         )
     }
