@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Question from './Question';
+import QuestionDetails from './QuestionDetails';
 
 
 class App extends Component {
@@ -25,10 +26,16 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <header className="row">
-          <h1>Questions</h1>
-        </header>
-        <Question questionsList={this.state.questions}/>
+        <Route
+          exact path="/"
+          render= {() => (
+            <Question questionsList={this.state.questions}/>
+        )}/>
+        <Route
+          exact path="/question-details"
+          render= {() => (
+            <QuestionDetails />
+        )}/>
       </div>
     );
   }
