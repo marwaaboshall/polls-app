@@ -23,8 +23,8 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <header>
+      <div className="container">
+        <header className="row">
           <h1>Questions</h1>
         </header>
         <Question questionsList={this.state.questions}/>
