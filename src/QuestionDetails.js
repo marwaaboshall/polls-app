@@ -4,11 +4,19 @@ import { Link } from 'react-router-dom';
 class QuestionDetails extends Component {
     state = {
         currentChoice: {},
-        currentChoiceURL: ''
+        currentChoiceURL: '',
+        totalVotes: 0
     };
+    componentDidMount() {
+        let totalVotes = 0;
+        this.props.choices.forEach(function(choice){
+            totalVotes += choice.votes;
+        });
+        this.setState({totalVotes});
+        console.log(totalVotes);
+    }
     setCurrentChoice = (currentChoice, currentChoiceURL) => {
-        this.setState({ currentChoice, currentChoiceURL }, () => console.log(this.state.currentChoice, this.state.currentChoiceURL));
-        console.log(`https://polls.apiblueprint.org/${currentChoiceURL}`);
+        this.setState({ currentChoice, currentChoiceURL });
     }
     
     saveVote = (currentChoiceURL) => {
@@ -25,23 +33,38 @@ class QuestionDetails extends Component {
 
     render() {
         return (
-            <div class="container">
+            <div className="container">
                 <header className="row">
-                    <div class="col-12">
+                    <div className="col-12">
                         <h1>Question Details</h1>
                     </div>
                 </header>
                 <div className="row">
                     <div className="col question-details">
                         <p>Question: {this.props.question}</p>
-                        <ul className="list-group list-group">
+                        <div className="list-group">
                             {this.props.choices.map((choice, index) => 
-                                <li className="list-group-item" key={index} onClick={() => {this.setCurrentChoice(choice.choice, choice.url);}}>{choice.choice}
-                                <span>  votes: {choice.votes}</span></li>
+                                <a
+                                  href="#"
+                                  className="list-group-item list-group-item-action   align-items-center"
+                                  key={index}
+                                  onClick={() => {this.setCurrentChoice(choice.choice, choice.url);}}>{choice.choice}
+                                  <span className=" d-flex justify-content-end">
+                                    <span className="badge badge-primary badge-pill">votes: {choice.votes}</span>
+                                    <span className="badge badge-primary badge-pill">{((parseFloat(choice.votes)/this.state.totalVotes).toFixed(1) * 100) + "%"}</span>
+                                </span>
+                                </a>
                             )}
-                        </ul>
-                        <Link className="btn btn-success" to="/" onClick={() => {this.saveVote(this.state.currentChoiceURL);}}>Save Vote</Link>
-                        <Link className="btn btn-danger" to="/">Cancel </Link>
+                        </div>
+                        <Link
+                            className="btn btn-success"
+                            to="/" 
+                            onClick={() => {this.saveVote(this.state.currentChoiceURL);}}>Save Vote
+                        </Link>
+                        <Link
+                            className="btn btn-danger"
+                            to="/">Cancel
+                        </Link>
                     </div>
                 </div>
             </div>

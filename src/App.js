@@ -17,7 +17,6 @@ class App extends Component {
       question,
       choices
     });
-    console.log(question, typeof choices);
   }
   render() {
     return (
