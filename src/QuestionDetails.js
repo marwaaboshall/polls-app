@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class QuestionDetails extends Component {
     state = {
@@ -7,6 +8,11 @@ class QuestionDetails extends Component {
         currentChoiceURL: '',
         totalVotes: 0
     };
+    static propTypes = {
+        question: PropTypes.object.isRequired,
+        choices: PropTypes.array.isRequired
+    };
+
     componentDidMount() {
         let totalVotes = 0;
         this.props.choices.forEach(function(choice){

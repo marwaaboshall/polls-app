@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Question extends Component {
+    static propTypes = {
+        question: PropTypes.object.isRequired,
+        getQuestionData: PropTypes.func.isRequired
+    };
+
     setQuestionData = (currentQuestion, choices) => {
         this.props.getQuestionData(currentQuestion, choices);
     }

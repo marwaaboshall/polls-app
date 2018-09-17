@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Question from './Question';
+import PropTypes from 'prop-types';
+
 class QuestionsList extends Component {
     state = {
         questions: []
+    };
+    static propTypes = {
+        shareQuestionData: PropTypes.func.isRequired
     };
     componentDidMount() {
         fetch('https://polls.apiblueprint.org/questions?page=1')
