@@ -28,7 +28,11 @@ class QuestionsList extends Component {
                 <header className="row">
                     <h1>Questions</h1>
                 </header>
-                <Question questionsList={this.state.questions} getQuestionData={this.getQuestionData}/>
+                <div className="row align-items-start">
+                    {this.state.questions.map((question, index) =>
+                        <Question question={question} key={index} getQuestionData={this.getQuestionData}/>
+                    )}
+                </div>
             </div>
         )
     }

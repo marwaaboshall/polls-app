@@ -9,14 +9,12 @@ class Question extends Component {
 
     render() {
         return(
-            <div className="row align-items-start">
-                {this.props.questionsList.map((question, index) =>
-                    <div className="col-6 col-md-4" key={index}>
-                        <Link to="/question-details" onClick= { ()=> {this.setQuestionData(question.question,question.choices);}}>{ question.question }</Link>
-                        <p>Published at: { question.published_at }</p>
-                        <p>Choices: {question.choices.length} </p>
-                    </div>
-                )}
+            <div className="col-6 col-md-4">
+                <Link
+                    to="/question-details" 
+                    onClick= { ()=> {this.setQuestionData(this.props.question.question,this.props.question.choices);}}>{ this.props.question.question }</Link>
+                <p>{this.props.question.published_at.slice(0,10) +', '+this.props.question.published_at.slice(11,16)}</p>
+                <p>Choices: {this.props.question.choices.length}</p>
             </div>
         )
     }
