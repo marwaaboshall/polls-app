@@ -26,11 +26,16 @@ class QuestionsList extends Component {
         return (
             <div className="container">
                 <header className="row">
+                <div className="col-12">
                     <h1>Questions</h1>
+                </div>
                 </header>
-                <div className="row align-items-start">
+                <div className="row questions-list">
                     {this.state.questions.map((question, index) =>
-                        <Question question={question} key={index} getQuestionData={this.getQuestionData}/>
+                        <Question 
+                            question={question}
+                            key={index}
+                            getQuestionData={this.getQuestionData}/>
                     )}
                 </div>
             </div>

@@ -9,7 +9,7 @@ class Question extends Component {
 
     render() {
         return(
-            <div className="col-6 col-md-4">
+            <div className="col-12 col-md-4 question">
                 <Link
                     to="/question-details" 
                     onClick= { ()=> {this.setQuestionData(this.props.question.question,this.props.question.choices);}}>{ this.props.question.question }</Link>
