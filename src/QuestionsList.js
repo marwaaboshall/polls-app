@@ -9,6 +9,7 @@ class QuestionsList extends Component {
     static propTypes = {
         shareQuestionData: PropTypes.func.isRequired
     };
+
     componentDidMount() {
         fetch('https://polls.apiblueprint.org/questions?page=1')
         .then((response) => {
@@ -22,9 +23,11 @@ class QuestionsList extends Component {
           console.log('An error happened fetching the data' + err);
         });
     }
+
     getQuestionData = (question, choices)=> {
         this.props.shareQuestionData(question, choices);
     }
+    
     render() {
         return (
             <div className="container">

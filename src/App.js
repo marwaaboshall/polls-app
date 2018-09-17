@@ -18,6 +18,7 @@ class App extends Component {
       choices
     });
   }
+  
   render() {
     return (
       <div className="container">

@@ -19,8 +19,8 @@ class QuestionDetails extends Component {
             totalVotes += choice.votes;
         });
         this.setState({totalVotes});
-        console.log(totalVotes);
     }
+    
     setCurrentChoice = (currentChoice, currentChoiceURL) => {
         this.setState({ currentChoice, currentChoiceURL });
     }
