@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Question extends Component {
-    state = {
-        currentQuestion: '',
-        choices: []
-    };
     setQuestionData = (currentQuestion, choices) => {
-        this.setState({
-            currentQuestion,
-            choices
-        });
         this.props.getQuestionData(currentQuestion, choices);
     }
     setQuestionData = this.setQuestionData.bind(this);

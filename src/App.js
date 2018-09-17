@@ -11,6 +11,7 @@ class App extends Component {
     question: '',
     choices: []
   };
+  
   shareQuestionData = (question, choices) => {
     this.setState({
       question,

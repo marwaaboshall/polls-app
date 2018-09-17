@@ -14,7 +14,8 @@ class QuestionDetails extends Component {
     saveVote = (currentChoiceURL) => {
         fetch(`https://polls.apiblueprint.org/${currentChoiceURL}`, {
             method: 'POST'
-        }).then(res => res.json())
+        })
+        .then(res => res.json())
         .then(response => console.log('Voting Success'))
         .catch(error => console.log(`Error while posting vote to API: ${error}`));
     }
