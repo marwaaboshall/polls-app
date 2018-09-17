@@ -9,7 +9,7 @@ class QuestionDetails extends Component {
         totalVotes: 0
     };
     static propTypes = {
-        question: PropTypes.object.isRequired,
+        question: PropTypes.string.isRequired,
         choices: PropTypes.array.isRequired
     };
 
@@ -20,7 +20,7 @@ class QuestionDetails extends Component {
         });
         this.setState({totalVotes});
     }
-    
+
     setCurrentChoice = (currentChoice, currentChoiceURL) => {
         this.setState({ currentChoice, currentChoiceURL });
     }
