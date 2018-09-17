@@ -20,16 +20,6 @@ body {
   padding-top: 50px;
 }
 
-.close {
-  width: 50px;
-  height: 50px;
-  background: #f4f3f4;
-  background-image: url('./icons/left-arrow.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 40px;
-  float: left;
-}
 .App {
   text-align: center;
 }

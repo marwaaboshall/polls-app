@@ -34,7 +34,7 @@ class QuestionDetails extends Component {
                 <div className="row">
                     <div className="col question-details">
                         <p>Question: {this.props.question}</p>
-                        <ul className="list-group list-group-flush">
+                        <ul className="list-group list-group">
                             {this.props.choices.map((choice, index) => 
                                 <li className="list-group-item" key={index} onClick={() => {this.setCurrentChoice(choice.choice, choice.url);}}>{choice.choice}
                                 <span>  votes: {choice.votes}</span></li>
